@@ -5,6 +5,7 @@ import openpyxl
 import PyPDF2
 import pptx
 from tqdm import tqdm
+import tkinter as tk
 
 # This function makes a tuple into all lowercase
 def lowercaseTuple(tuple_val):
@@ -70,7 +71,6 @@ for i in tqdm(file_list):
 
     # Gets the extension of the file so it knows which one to read
     extension = os.path.splitext(i)[1]
-
     if extension == ".pptx":
         test = readPPTX(i, searchQuery)
         if test != None:
@@ -89,6 +89,6 @@ for i in tqdm(file_list):
         if test != None:
             matchingFiles.append(test[6:])
 
-print("Files containing the phrase/keyword: " + searchQuery)
+print("\nFiles containing the phrase/keyword: " + searchQuery + "\n")
 for i in matchingFiles:
     print(i + "\n")
